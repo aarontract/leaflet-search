@@ -1,5 +1,5 @@
 /* 
- * Leaflet Control Search v1.8.4 - 2015-09-05 
+ * Leaflet Control Search v1.8.4 - 2015-11-25 
  * 
  * Copyright 2015 Stefano Cudini 
  * stefano.cudini@gmail.com 
@@ -61,7 +61,9 @@ L.Control.Search = L.Control.extend({
 		animateLocation: true,		//animate a circle over location found
 		circleLocation: true,		//draw a circle in location found
 		markerLocation: false,		//draw a marker in location found
-		markerIcon: new L.Icon.Default()//custom icon for maker location
+		markerIcon: new L.Icon.Default(),//custom icon for maker location
+		finishedSearchCallback: null
+		//customMarkerLayerGroup: null,
 		//TODO add option for persist markerLoc after collapse!
 		//TODO implements uniq option 'sourceData' that recognizes source type: url,array,callback or layer		
 		//TODO implement can do research on multiple sources layers and remote		
@@ -800,7 +802,12 @@ L.Control.Search = L.Control.extend({
 	},
 
 	showLocation: function(latlng, title) {	//set location on map from _recordsCache
-			
+		//
+		if(finishedSearchCallback) {
+			this.options.finishedSearchCallback(latlng, title);
+		}
+
+
 		if(this.options.zoom)
 			this._map.setView(latlng, this.options.zoom);
 		else
