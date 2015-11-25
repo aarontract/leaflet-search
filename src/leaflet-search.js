@@ -787,7 +787,7 @@ L.Control.Search = L.Control.extend({
 
 	showLocation: function(latlng, title) {	//set location on map from _recordsCache
 		//console.log('callback Run');
-		if(finishedSearchCallback) {
+		if(this.options.finishedSearchCallback) {
 			this.options.finishedSearchCallback(latlng, title);
 		}
 
