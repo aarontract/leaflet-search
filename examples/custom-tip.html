@@ -61,7 +61,7 @@ aquamarine, black, blue, cyan, darkblue, darkred, darkgray, dodgerblue, gray, gr
 		return '<a href="#">'+text+'<em style="background:'+text+'; width:14px;height:14px;float:right"></em></a>';
 	}
 
-	map.addControl( new L.Control.Search({layer: markersLayer, buildTip: customTip, autoType: false }) );  //inizialize search control
+	map.addControl( new L.Control.Search({layer: markersLayer, callTip: customTip, autoType: false }) );  //inizialize search control
 
 	////////////populate map with markers from sample data
 	for(i in data) {
@@ -75,8 +75,6 @@ aquamarine, black, blue, cyan, darkblue, darkred, darkgray, dodgerblue, gray, gr
 </script>
 
 <div id="copy"><a href="http://labs.easyblog.it/">Labs</a> &bull; <a rel="author" href="http://labs.easyblog.it/stefano-cudini/">Stefano Cudini</a></div>
-
-<script type="text/javascript" src="/labs-common.js"></script>
-
+	
 </body>
 </html>

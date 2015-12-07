@@ -86,7 +86,7 @@ h4 {
 <div class="maptest_wrap">
 <h4>search in GeoJSON</h4>
 <div id="map_vector" class="maptest"></div>
-<script src="data/us-states.js"></script>
+<script src="us-states.js"></script>
 <script>
 
 	var map = new L.Map('map_vector', {zoom: 5, center: new L.latLng([37.8, -96]) });
@@ -148,7 +148,7 @@ h4 {
 </div>
 
 <div class="maptest_wrap">
-<h4>sourceData AJAX(by jQuery)</h4>
+<h4>callData AJAX(by jQuery)</h4>
 <div id="map_ajaxjquery" class="maptest"></div>
 <script>
 
@@ -167,13 +167,13 @@ h4 {
 		});
 	}
 
-	map.addControl( new L.Control.Search({sourceData: searchByAjax, text:'Color...', markerLocation: true}) );
+	map.addControl( new L.Control.Search({callData: searchByAjax, text:'Color...', markerLocation: true}) );
 
 </script>
 </div>
 
 <div class="maptest_wrap">
-<h4>jsonpUrl, formatData, Cities</h4>
+<h4>jsonpUrl, filterJSON, Cities</h4>
 <div id="map_filterjson" class="maptest"></div>
 <script>
 
@@ -184,7 +184,7 @@ h4 {
 				   '&format=json&osm_type=N&limit=100&addressdetails=0',
 		jsonpName = 'json_callback';
 
-	function formatJSON(rawjson) {	//callback that remap fields name
+	function filterJSONCall(rawjson) {	//callback that remap fields name
 		var json = {},
 			key, loc, disp = [];
 			
@@ -205,7 +205,7 @@ h4 {
 	var searchOpts = {
 			url: jsonpUrl,
 			jsonpParam: jsonpName,
-			formatData: formatJSON,
+			filterJSON: filterJSONCall,
 			animateLocation: true,
 			markerLocation: true,
 			zoom:10,
@@ -235,7 +235,7 @@ h4 {
 		return '<a href="#">'+text+'<em style="background:'+text+'; width:14px;height:14px;float:right"></em></a>';
 	}
 
-	map.addControl( new L.Control.Search({layer: markersLayer, buildTip: customTip, autoType: false }) );  //inizialize search control
+	map.addControl( new L.Control.Search({layer: markersLayer, callTip: customTip, autoType: false }) );  //inizialize search control
 
 	////////////populate map with markers from sample data
 	for(i in data) {
@@ -249,8 +249,6 @@ h4 {
 </div>
 
 <div id="copy"><a href="http://labs.easyblog.it/">Labs</a> &bull; <a rel="author" href="http://labs.easyblog.it/stefano-cudini/">Stefano Cudini</a></div>
-
-<script type="text/javascript" src="/labs-common.js"></script>
-
+	
 </body>
 </html>

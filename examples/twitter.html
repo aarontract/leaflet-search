@@ -34,7 +34,7 @@
 	var map = new L.Map('map', {zoom: 9, center: new L.latLng([41.575730,13.002411]) });
 	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
 	
-	function formatJSON(rawjson) {	//callback that remap fields name
+	function filterJSON(rawjson) {	//callback that remap fields name
 		var json = {},
 			key, loc, res = [];
 		
@@ -73,8 +73,8 @@
 	var searchOpts = {
 			url: 'http://search.twitter.com/search.json?q={s}',
 			jsonpParam: 'callback',
-			formatData: formatJSON,
-			buildTip: makeTip,
+			filterJSON: filterJSON,
+			callTip: makeTip,
 			animateLocation: true,
 			markerLocation: true,
 			zoom: 10,
@@ -96,8 +96,6 @@
 </script>
 
 <div id="copy"><a href="http://labs.easyblog.it/">Labs</a> &bull; <a rel="author" href="http://labs.easyblog.it/stefano-cudini/">Stefano Cudini</a></div>
-
-<script type="text/javascript" src="/labs-common.js"></script>
-
+	
 </body>
 </html>

@@ -41,13 +41,11 @@ black, blue, cyan, darkblue, darkred, darkgray, gray, gree, red, yellow, white
 		});
 	}
 
-	map.addControl( new L.Control.Search({sourceData: searchByAjax, text:'Color...', markerLocation: true}) );
+	map.addControl( new L.Control.Search({callData: searchByAjax, text:'Color...', markerLocation: true}) );
 
 </script>
 
 <div id="copy"><a href="http://labs.easyblog.it/">Labs</a> &bull; <a rel="author" href="http://labs.easyblog.it/stefano-cudini/">Stefano Cudini</a></div>
-
-<script type="text/javascript" src="/labs-common.js"></script>
-
+	
 </body>
 </html>

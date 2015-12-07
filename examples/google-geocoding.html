@@ -3,7 +3,7 @@
 <head> 
 <title></title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<link rel="stylesheet" href="../bower_components/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="/maps/leaflet/dist/leaflet.css" />
 <link rel="stylesheet" href="../src/leaflet-search.css" />
 <link rel="stylesheet" href="../style.css" />
 <style>
@@ -30,7 +30,7 @@ Google Geocoding API <br />
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
-<script src="../bower_components/leaflet/dist/leaflet.js"></script>
+<script src="/maps/leaflet/dist/leaflet.js"></script>
 <script src="../src/leaflet-search.js"></script>
 <script>
 
@@ -44,7 +44,7 @@ Google Geocoding API <br />
 		geocoder.geocode({address: text}, callResponse);
 	}
 
-	function formatJSON(rawjson)
+	function filterJSONCall(rawjson)
 	{
 		var json = {},
 			key, loc, disp = [];
@@ -61,42 +61,19 @@ Google Geocoding API <br />
 		return json;
 	}
 
-	var  heyHeyHey = function (latlng, title) {
-		console.log('heyHeyHey'+"latlng:"+latlng+ " title:"+title)
-	}
-
 	map.addControl( new L.Control.Search({
-			sourceData: googleGeocoding,
-			formatData: formatJSON,
-
-
-
-
-
-
-                  callData: googleGeocoding,
-                    filterJSON: filterJSONCall,
-                    markerLocation: true,
-                    markerIcon: $rootScope.markers.omSearchMarker,
-                    circleLocation: false,
-                    autoType: false,
-                    autoCollapse: true,
-                    minLength: 3,
-                    zoom: 16,
-                    autoCollapseTime: 60000,
-                    //wrapper: '#haystackSearch',    
-                    collapsed: false,
-                    text: 'Search Address',
-                    finishedSearchCallback: heyHeyHey
-
-
+			callData: googleGeocoding,
+			filterJSON: filterJSONCall,
+			markerLocation: true,
+			autoType: false,
+			autoCollapse: true,
+			minLength: 2,
+			zoom: 10
 		}) );
 
 </script>
 
 <div id="copy"><a href="http://labs.easyblog.it/">Labs</a> &bull; <a rel="author" href="http://labs.easyblog.it/stefano-cudini/">Stefano Cudini</a></div>
-
-<script type="text/javascript" src="/labs-common.js"></script>
-
+	
 </body>
 </html>
