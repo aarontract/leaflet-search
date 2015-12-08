@@ -51,7 +51,7 @@
 }
 .leaflet-control-search .search-cancel {
 	display:block;
-	width:22px;
+	width:22px; 
 	height:18px;
 	position:absolute;
 	right:22px;

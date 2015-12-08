@@ -59,7 +59,7 @@ L.Control.Search = L.Control.extend({
 		textErr: 'Location not found',	//error message
 		position: 'topleft',
 		animateLocation: true,		//animate a circle over location found
-		circleLocation: true,		//draw a circle in location found
+		circleLocation: true,		//draw a circle in location found 
 		markerLocation: false,		//draw a marker in location found
 		markerIcon: new L.Icon.Default(), //custom icon for maker location
 		finishedSearchCallback: null
